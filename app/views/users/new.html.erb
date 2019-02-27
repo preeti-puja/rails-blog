@@ -1,4 +1,4 @@
-<%= form_for (@user) do |f| %>
+<%= form_for @user do |f| %>
     <%= f.label :email %>
     <%= f.text_field :email %>
 
@@ -7,6 +7,23 @@
 
     <%= f.label :last_name %>
     <%= f.text_field :last_name %>
+
+    <%= f.fields_for :addresses do |a| %>
+        <%= a.label :street1 %>
+        <%= a.text_field :street1 %>
+
+        <%= a.label :street2 %>
+        <%= a.text_field :street2 %>
+
+        <%= a.label :city %>
+        <%= a.text_field :city %>
+
+        <%= a.label :country %>
+        <%= a.text_field :country %>
+
+        <%= a.label :pin_code %>
+        <%= a.text_field :pin_code %>
+    <% end %>
 
     <%= f.submit %>
 <% end %>

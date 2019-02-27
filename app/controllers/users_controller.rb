@@ -1,15 +1,15 @@
 class UsersController < ApplicationController
 
     def index
+        @users = User.all
         if params[:query].present?
-            @users = User.where("first_name=? OR email=?", params[:query], params[:query])
-        else
-            @users = User.all
+            @users = @users.where("first_name LIKE ? OR email LIKE ?", "#{params[:query]}%", "#{params[:query]}%")  
         end 
     end
 
     def new
         @user = User.new
+        @user.addresses.new
     end
 
     def create
@@ -25,6 +25,6 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:email, :first_name, :last_name)
+        params.require(:user).permit(:email, :first_name, :last_name, addresses_attributes: [:street1, :street2, :city, :state, :country, :pin_code])
     end
 end
