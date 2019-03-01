@@ -1,0 +1,58 @@
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel">Add User!</h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+  </button>
+ </div>
+ <div class="modal-body">
+<%= form_for @user, remote: true do |f| %>
+
+            <div class="form-group">
+                <%= f.label :email %>
+                <%= f.text_field :email, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+                <%= f.label :first_name %>
+                <%= f.text_field :first_name, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+                <%= f.label :last_name %>
+                <%= f.text_field :last_name, class: "form-control" %>
+            <div>
+
+            <%= f.fields_for :addresses do |a| %>
+                <div class="form-group">
+                    <%= a.label :street1 %>
+                    <%= a.text_field :street1, class: "form-control" %>
+                </div>
+                
+                <div class="form-group">
+                    <%= a.label :street2 %>
+                    <%= a.text_field :street2, class: "form-control" %>
+                </div>
+
+                <div class="form-group">
+                    <%= a.label :city %>
+                    <%= a.text_field :city, class: "form-control" %>
+                </div>
+
+                <div class="form-group">
+                    <%= a.label :country %>
+                    <%= a.text_field :country, class: "form-control" %>
+                </div>
+
+                <div class="form-group">
+                    <%= a.label :pin_code %>
+                    <%= a.text_field :pin_code, class: "form-control" %>
+                </div>
+            <% end %>
+            </div>
+            <div class="form-group">
+              <%= f.submit "Save User", class: "btn  btn-warning" %>
+            </div>
+<% end %>
+</div>
+<div class="modal-footer">
+</div>
