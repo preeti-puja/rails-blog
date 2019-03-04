@@ -25,6 +25,31 @@ class UsersController < ApplicationController
         end
     end
 
+    def edit
+        @user = User.find(params[:id])
+
+        respond_to do |format|
+            format.html
+            format.js
+        end
+    end
+
+    def update
+        @user = User.find(params[:id])
+
+        unless @user.update_attributes(user_params)
+            render 'edit'
+        end
+    end 
+
+    def destroy
+        @user = User.find(params[:id])
+
+        @user.destroy
+        
+
+    end
+
     private
 
     def user_params

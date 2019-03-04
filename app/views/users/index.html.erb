@@ -5,8 +5,6 @@
 	<%= submit_tag %>
 <% end %>
 <ul class="user_list">
-  <% @users.each do |user| %>
-    <%= render 'user', user: user %>
-  <% end %>
+  <%= render @users %>
 </ul>
  
