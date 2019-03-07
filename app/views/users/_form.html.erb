@@ -5,6 +5,15 @@
   </button>
  </div>
  <div class="modal-body">
+ <div id="error_explanation">
+   <% if @user.errors.any? %>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+ </div>
 <%= form_for @user, remote: true do |f| %>
 
             <div class="form-group">

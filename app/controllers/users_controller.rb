@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     def create
         @user = User.new(user_params)
 
-        unless @user.save!
+        unless @user.save
             render 'new'
         end
     end
