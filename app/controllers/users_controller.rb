@@ -21,7 +21,10 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
 
         unless @user.save
+            flash.now[:error] = "User cannot be created"
             render 'new'
+        else
+            flash[:sucess] = "user got created"
         end
     end
 
