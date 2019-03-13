@@ -31,6 +31,14 @@ class UsersController < ApplicationController
     def edit
         @user = User.find(params[:id])
 
+       
+        
+        @addresses = if @user.addresses.present?
+                        @user.addresses
+                    else
+                        @user.addresses.new
+                    end
+
         respond_to do |format|
             format.html
             format.js
@@ -40,7 +48,7 @@ class UsersController < ApplicationController
     def update
         @user = User.find(params[:id])
 
-        unless @user.update_attributes(user_params)
+        unless @user.update_attributes!(user_params)
             render 'edit'
         end
     end 

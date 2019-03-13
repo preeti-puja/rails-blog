@@ -1,7 +1,5 @@
 <%= link_to "Add User", new_user_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %>
 
-<%= link_to "Add Product", new_product_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %>
-
 <%= form_tag users_path, method: :get  do %>
 	<%= text_field_tag 'query', nil,  placeholder:'search here' %>
 	<%= submit_tag %>

@@ -1,0 +1,4 @@
+<%= link_to "Add Product", new_product_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %>
+<ul class="product_details">
+<%= render @products %>
+</ul>

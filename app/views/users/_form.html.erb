@@ -31,7 +31,7 @@
                 <%= f.text_field :last_name, class: "form-control" %>
             <div>
 
-            <%= f.fields_for :addresses do |a| %>
+            <%= f.fields_for :addresses, @addresses do |a| %>
                 <div class="form-group">
                     <%= a.label :street1 %>
                     <%= a.text_field :street1, class: "form-control" %>
