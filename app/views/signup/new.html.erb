@@ -1,0 +1,43 @@
+<h2>Sign Up</h2>
+<div id="error_explanation">
+   <% if @user.errors.any? %>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+ </div>
+ <div>
+<%= form_for @user, url: signup_path do |f| %>
+
+    <div class="form-group">
+        <%= f.label :email %>
+        <%= f.text_field :email, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name, class: "form-control" %>
+    <div>
+
+    <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, class: "form-control" %>
+    <div>
+
+    <div class="form-group">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: "form-control" %>
+    <div>
+
+    <div class="form-group">
+        <%= f.submit "Save User", class: "btn  btn-warning" %>
+    </div>
+<% end %>
+<div>

@@ -21,6 +21,28 @@ class ProductsController < ApplicationController
         end
     end
 
+    def edit
+        @product = Product.find(params[:id])
+
+        respond_to do |format|
+            format.html
+            format.js
+        end
+    end
+
+    def update
+        @product = Product.find(params[:id])
+
+        unless @product.update_attributes(product_params)
+            render 'edit'
+        end
+    end
+
+    def destroy
+        @product = Product.find(params[:id])
+        @product.destroy
+    end
+
     private
 
     def product_params

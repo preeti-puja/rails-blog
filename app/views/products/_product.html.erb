@@ -1,5 +1,8 @@
-<li><%= product.name %>
+<li id="<%= dom_id(product) %>"><%= product.name %>
 <%= product.description %>
 <%= product.quantity %>
 <%= product.price %>
-<%= product.sku %></li>
+<%= product.sku %>
+<%= link_to 'edit', edit_product_path(product), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %>
+<%= link_to 'delete', product_path(product), remote: true, method: :delete, data: {confirm: "Are you sure"} %>
+</li>
